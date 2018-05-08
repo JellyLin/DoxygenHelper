@@ -1,7 +1,7 @@
 # DoxygenHelper
 auto add Doxygen notation to js file
 
-Usage
+# How to Use:
 
 ```
 a = new DoxygenHelper();
