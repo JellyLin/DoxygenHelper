@@ -3,6 +3,12 @@ auto add Doxygen notation to js file
 
 # How to Use:
 
+Include File
+
+```
+$.getScript("https://rawgit.com/JellyLin/DoxygenHelper/master/DoxygenHelper.js");
+```
+
 ```
 a = new DoxygenHelper();
 
