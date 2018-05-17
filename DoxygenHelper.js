@@ -32,14 +32,36 @@ class DoxygenHelper {
         Object.entries(obj).forEach(([key, value]) => {
             // console.log(`${key} ${value}`); // "a 5", "b 7", "c 9"
             var _type = this.checkType(value);
-            if (depth < this._maxdepth && _type === 'object' && Object.keys(value).length > 0) {
-                _local[key] = this.search(value, depth + 1);
+            _local[key] = _type;
+            if (depth < this._maxdepth) {
+                if (_type === 'object' && Object.keys(value).length > 0) {
+                    _local[key] = this.search(value, depth + 1);
+                } else if (_type === 'function') {
+                    _local[key] = _type + this.getParameter(value);
+                }
             } else {
-                _local[key] = _type;
+                if (_type === 'function')
+                    _local[key] = _type + this.getParameter(value);
             }
         });
 
         return _local;
+    }
+
+    /*
+     * @function getParameter: get function parameters
+     */
+    getParameter(func) {
+        let _par = '()';
+        // func.toString()
+        // func.toLocaleString()
+        // Reference: https://stackoverflow.com/questions/17779744/regular-expression-to-get-a-string-between-parentheses-in-javascript
+        var regExp = /\(([^)]+)\)/;
+        var matches = regExp.exec(func.toString());
+
+        _par = (matches === null) ? '()' : matches[0];
+        
+        return _par;
     }
 
     /*
@@ -139,3 +161,5 @@ class DoxygenHelper {
 a = new DoxygenHelper()
 
 a._main(fm)
+
+a._result[0]
