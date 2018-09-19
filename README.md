@@ -12,6 +12,8 @@ $.getScript("https://rawgit.com/JellyLin/DoxygenHelper/master/DoxygenHelper.js")
 ```
 a = new DoxygenHelper();
 
+a._maxdepth = 3;
+
 a._main(fm);
 
 a._result[0];
