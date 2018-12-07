@@ -6,7 +6,7 @@ auto add Doxygen notation to js file
 Include File
 
 ```
-$.getScript("https://rawgit.com/JellyLin/DoxygenHelper/master/DoxygenHelper.js");
+$.getScript("https://cdn.jsdelivr.net/gh/JellyLin/DoxygenHelper/DoxygenHelper.js");
 ```
 
 ```
